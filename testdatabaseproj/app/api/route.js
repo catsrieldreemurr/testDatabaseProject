@@ -1,12 +1,12 @@
 import mysql from 'mysql2/promise';
 
 export async function GET(){
-    const connection = await mysql.createConnection({
+    /*const connection = await mysql.createConnection({
         host: process.env.DB_HOST,
-        port: process.env.DB_PORT,
+        port: Number(process.env.DB_PORT),
         user: process.env.DB_USER, 
         password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME
+        database: process.env.DB_NAME,
     });
 
     const [rows] = await connection.execute('SELECT * FROM UserInfo');
@@ -15,5 +15,7 @@ export async function GET(){
     return new Response(JSON.stringify(rows), {
         status: 200,
         headers: { 'Content-Type': 'application/json'},
-    });
+    });*/
+
+    return Response.json({message: "I hate mysql"})
 }
