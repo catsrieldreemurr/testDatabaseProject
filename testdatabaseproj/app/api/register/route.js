@@ -23,9 +23,14 @@ export async function POST(req){
     
     const hashedPassword = await HashPass(password);
     
+    try{
     await connection.execute(
-        'INSERT INTO UserInfo (username, email, password) VALUES(?, ?, ?)', [username, email, hashedPassword]
+        'INSERT INTO UserInfo (username, email, passwordHash) VALUES(?, ?, ?)', [username, email, hashedPassword]
     )
+    } catch(err){
+        console.error(err)
+        return new Response(JSON.stringify({message: "Something went wrong with the SQL"}), {status: 500});
+    }
 
     await connection.end()
 
@@ -33,6 +38,6 @@ export async function POST(req){
     }
     catch(err){
         console.error(err);
-        return new Response(JSON.stringify({message: "Somthing Went Wrong"}, {status: 500}));
+        return new Response(JSON.stringify({message: "Somthing Went Wrong"}), {status: 500});
     }
 }
