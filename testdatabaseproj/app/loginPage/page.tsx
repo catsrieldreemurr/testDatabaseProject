@@ -18,7 +18,6 @@ export default function Loginpage(){
 
             <div className="flex gap-50 text-2xl mt-10">
                 <button className="bg-green-500 p-5 rounded-xl">Log In</button>
-                <button className="bg-red-500 p-5 rounded-xl">Clear</button>
             </div>
 
         </form>
