@@ -26,6 +26,9 @@ export default function Home() {
 
         if(res.status == 200){
           SetIsSuccessful(2);
+        } else if(res.status !== 200){
+          SetIsSuccessful(0);
+          console.error("Something went wrong, and we were not able to register your account.")
         }
 
         console.log(res)
@@ -67,7 +70,7 @@ export default function Home() {
               setEmail(e.target.value)
             }}></input>
 
-            <label htmlFor="password" className="text-2xl font-bold">Username</label>
+            <label htmlFor="password" className="text-2xl font-bold">Password</label>
             <input type="password" id="password" placeholder="Password@1234" className="border h-[3rem] w-1/3 text-2xl border-gray-400 rounded-xl" onChange={(e) => {
               setRawPassword(e.target.value);
             }}></input>

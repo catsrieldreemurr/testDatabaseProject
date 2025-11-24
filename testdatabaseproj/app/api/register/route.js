@@ -19,7 +19,6 @@ export async function POST(req){
     try{
     const data = await req.json();
     const {username, email, password} = data;
-    console.log(username, email, password);
     
     const hashedPassword = await HashPass(password);
     
